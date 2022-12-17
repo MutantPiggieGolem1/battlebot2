@@ -16,11 +16,6 @@ import java.awt.Point;
 public abstract class Menu {
     public static final Menu cornerMenu = new RotaryMenu(new Point(0, 0));
     protected Set<Button> buttons;
-    protected boolean expanded;
-
-    public void expand() {
-        this.expanded = !this.expanded;
-    }
 
     public abstract void update();
 
@@ -65,6 +60,7 @@ class DialogueMenu extends Menu implements Drawable {
 class RotaryMenu extends Menu implements Drawable {
     private Point origin;
     private int radius = 32;
+    protected boolean expanded = false;
 
     public RotaryMenu(Point origin) {
         this.origin = origin;
@@ -77,7 +73,7 @@ class RotaryMenu extends Menu implements Drawable {
     }
 
     public void expand() {
-        super.expand();
+        this.expanded = !this.expanded;
         this.buttons.forEach(b->((RotaryButton)b).expand());
     }
 

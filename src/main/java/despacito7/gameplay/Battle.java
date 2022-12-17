@@ -5,6 +5,7 @@ import despacito7.util.Drawable;
 
 import java.awt.Graphics2D;
 
+@SuppressWarnings("unused")
 public class Battle implements Drawable {
     private Enemy enemy;
     private Player player;
